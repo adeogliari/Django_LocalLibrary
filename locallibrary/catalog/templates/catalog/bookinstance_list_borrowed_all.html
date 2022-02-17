@@ -11,6 +11,7 @@
                     ({{ bookinst.due_back }}) -
                     {{ bookinst.borrower.first_name }}
                     {{ bookinst.borrower.last_name }}
+                    {% if perms.catalog.can_mark_returned %}- <a href="{% url 'renew-book-librarian' bookinst.id %}">Renew</a>  {% endif %}
                 </li>
             {% endfor %}
         </ul>
